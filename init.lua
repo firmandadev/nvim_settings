@@ -7,6 +7,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = false
+vim.opt.breakindent = true
 
 function toggle_keymap()
   if vim.o.keymap == "russian-jcukenwin" then
