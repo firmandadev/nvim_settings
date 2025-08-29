@@ -1,6 +1,48 @@
 return{
   -- the colorscheme should be available when starting Neovim
   {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    opts = {
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+      },
+      ensure_installed = {
+        "javascript",
+        "lua",
+        "python",
+        "html",
+        "css",
+        "bash",
+        "json"
+      },
+      ignore_install = { "typescript"},
+    },
+    config = function(_,opts)
+    require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+  {
+    'akinsho/bufferline.nvim',
+    opts={
+      options={
+      mode = "buffers",
+      show_buffer_icons=true,
+      diagnostics = "nvim_lsp",
+      offsets = {{filetype="neo-tree",text="",highlight="Directory", separator=true}},
+      separator_style = "slant"
+    }}
+  },
+  {
+    'goolord/alpha-nvim',
+    config = function()
+      require('alpha').setup(require('alpha.themes.startify').config)
+    end
+  },
+    {
     "folke/tokyonight.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
@@ -94,6 +136,33 @@ return{
     -- lazy-load on keys
     -- mode is `n` by default. For more advanced options, check the section on key mappings
     keys = { "<C-a>", { "<C-x>", mode = "n" } },
+  },
+{
+    "nvim-lualine/lualine.nvim",
+    dependencies={'nvim-tree/nvim-web-devicons'},
+    opts={
+      options={
+        globalstatus = false,
+        tabline = {
+          lualine_a = {'search'},
+          lualine_b = {'filename'},
+          lualine_c = {
+            'filetype','diff','diagnostics',
+          },
+          lualine_x = {'location'},
+          lualine_y = {},
+          lualine_z = {'progress'}
+        },
+        sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {}
+        }
+      }
+    }
   },
 
   -- local plugins need to be explicitly configured with dir
