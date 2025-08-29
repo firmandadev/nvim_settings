@@ -1,6 +1,6 @@
 require("config.lazy")
 require("config.lsp")
-
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 vim.opt.number = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
