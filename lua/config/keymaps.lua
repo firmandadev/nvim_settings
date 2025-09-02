@@ -4,9 +4,8 @@ local map = vim.keymap.set
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {
   desc = "Toggle File Explorer" 
 })
-map('n', '<leader>k', ':lua toggle_keymap()<CR>', { noremap = true, silent = true })
-map('n', '<leader>h', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
-map('n', '<leader>l', ':wincmd l<CR>', { noremap = true, silent = true })
+map('n', '<leader>h', ':NvimTreeFocus<CR>', { noremap = true, silent = true, desc = 'Focus on the File Explorer' })
+map('n', '<leader>l', ':wincmd l<CR>', { noremap = true, silent = true, desc ='Move to the right windows'})
 map('t', '<C-j>', '<C-\\><C-n>:bnext<CR>', { noremap = true, silent = true, desc = 'Next buffer' })
 map('t', '<C-k>', '<C-\\><C-n>:bprev<CR>', { noremap = true, silent = true, desc = 'Previous buffer' })
 
