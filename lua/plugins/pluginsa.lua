@@ -2,8 +2,8 @@ return{
   -- the colorscheme should be available when starting Neovim
   {
     "folke/tokyonight.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
+    lazy = false,
+    priority = 1000,
     config = function()
       -- load the colorscheme here
       vim.cmd([[colorscheme tokyonight]])
@@ -46,17 +46,36 @@ return{
       vim.g.startuptime_tries = 10
     end,
   },
+  -- {
+  -- "nvim-tree/nvim-tree.lua", 
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   config = function()
+  --     require("nvim-tree").setup()
+  --     end,
+  --   keys = {
+  --   { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle File Explorer" },
+  --     },
+  --   },
   {
-  "nvim-tree/nvim-tree.lua",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-    require("nvim-tree").setup()
-  end,
-  keys = {
-    { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle File Explorer" },
+    "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").setup{
+        default = true,
+      }
+    end,
   },
-},
-
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup{
+      }
+    end;
+  },
 
   {
     "hrsh7th/nvim-cmp",
@@ -75,7 +94,6 @@ return{
 
   -- if some code requires a module from an unloaded plugin, it will be automatically loaded.
   -- So for api plugins like devicons, we can always set lazy=true
-  { "nvim-tree/nvim-web-devicons", lazy = true },
 
   -- you can use the VeryLazy event for things that can
   -- load later and are not important for the initial UI
