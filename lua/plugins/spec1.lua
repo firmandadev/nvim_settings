@@ -25,7 +25,7 @@ return{
     require("nvim-treesitter.configs").setup(opts)
     end,
   },
-  {
+  --[[{
     'akinsho/bufferline.nvim',
     opts={
       options={
@@ -35,7 +35,7 @@ return{
       offsets = {{filetype="neo-tree",text="",highlight="Directory", separator=true}},
       separator_style = "slant"
     }}
-  },
+  },]]--
   {
     'goolord/alpha-nvim',
     config = function()
