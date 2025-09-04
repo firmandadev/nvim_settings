@@ -12,8 +12,9 @@ wk.register({
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {
   desc = "Toggle File Explorer" 
 })
-map('n', '<leader>h', ':NvimTreeFocus<CR>', { noremap = true, silent = true, desc = 'Focus on the File Explorer' })
+-- map('n', '<leader>h', ':NvimTreeFocus<CR>', { noremap = true, silent = true, desc = 'Focus on the File Explorer' })
 map('n', '<leader>l', ':wincmd l<CR>', { noremap = true, silent = true, desc ='Move to the right windows'})
+map('n', '<leader>h', ':wincmd h<CR>', { noremap = true, silent = true, desc ='Move to the left windows'})
 map('t', '<C-j>', '<C-\\><C-n>:bnext<CR>', { noremap = true, silent = true, desc = 'Next buffer' })
 map('t', '<C-k>', '<C-\\><C-n>:bprev<CR>', { noremap = true, silent = true, desc = 'Previous buffer' })
 
