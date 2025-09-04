@@ -2,20 +2,13 @@ local map = vim.keymap.set
 local wk = require("which-key")
 
 wk.register({
-  b = {
-    name = "Tabs",
-    ['n'] = {
-      "<cmd>tabnext<CR>","To the next tab"
-    },
-    ['v'] = {
-      "<cmd>tabprevious<CR>","To the previous tab"
-    },
-    ['h'] = {
-      "<cmd>tabnew<CR>","Create new Tab"
-    }
-  }
-}, {prefix = "<leader>", mode={"n"}})
-
+  ["<leader>b"] = {
+    name = "Tabs", -- this sets the group name
+    h = { "<cmd>tabnew<CR>", "Create new Tab" },
+    n = { "<cmd>tabnext<CR>", "Next Tab" },
+    v = { "<cmd>tabprevious<CR>", "Previous Tab" },
+  },
+})
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {
   desc = "Toggle File Explorer" 
 })
