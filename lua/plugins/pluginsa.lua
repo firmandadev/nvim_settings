@@ -25,6 +25,10 @@ return{
     require("nvim-treesitter.configs").setup(opts)
     end,
   },
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+  },
   -- lazy.nvim
   {
     'akinsho/git-conflict.nvim',
