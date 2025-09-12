@@ -1,26 +1,31 @@
 local map = vim.keymap.set
 local wk = require("which-key")
+local builtin = require('telescope.builtin')
 
 wk.register({
-  b = {
-    name = "Tabs",
-    ['n'] = {
-      "<cmd>tabnext<CR>","To the next tab"
-    },
-    ['v'] = {
-      "<cmd>tabprevious<CR>","To the previous tab"
-    },
-    ['h'] = {
-      "<cmd>tabnew<CR>","Create new Tab"
-    }
-  }
-}, {prefix = "<leader>", mode={"n"}})
-
+  ["<leader>b"] = {
+    name = "Tabs", -- this sets the group name
+    h = { "<cmd>tabnew<CR>", "Create new Tab" },
+    n = { "<cmd>tabnext<CR>", "Next Tab" },
+    v = { "<cmd>tabprevious<CR>", "Previous Tab" },
+  },
+})
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {
   desc = "Toggle File Explorer" 
 })
-map('n', '<leader>h', ':NvimTreeFocus<CR>', { noremap = true, silent = true, desc = 'Focus on the File Explorer' })
+wk.register({
+  ["<leader>f"] = {
+    name = "Telescope",
+    f = {builtin.find_files,"Telescope find files"},
+    g = {builtin.live_grep,"Telescope live grep"},
+    b = {builtin.buffers,"Telescope buffer"},
+    h = {builtin.help_tags,"Telescope help tags"},
+  },
+})
+
+-- map('n', '<leader>h', ':NvimTreeFocus<CR>', { noremap = true, silent = true, desc = 'Focus on the File Explorer' })
 map('n', '<leader>l', ':wincmd l<CR>', { noremap = true, silent = true, desc ='Move to the right windows'})
+map('n', '<leader>h', ':wincmd h<CR>', { noremap = true, silent = true, desc ='Move to the left windows'})
 map('t', '<C-j>', '<C-\\><C-n>:bnext<CR>', { noremap = true, silent = true, desc = 'Next buffer' })
 map('t', '<C-k>', '<C-\\><C-n>:bprev<CR>', { noremap = true, silent = true, desc = 'Previous buffer' })
 
