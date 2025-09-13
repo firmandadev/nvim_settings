@@ -21,7 +21,7 @@ end
 
 -- Map to a key, e.g., <leader>k
 vim.api.nvim_set_keymap('n', '<leader>k', ':lua toggle_keymap()<CR>', { noremap = true, silent = true })
-vim.keymap.set('n','<leader>t',':terminal<CR>',{ noremap = true, silent = true, desc = 'open terminal'})
+vim.keymap.set('n','<leader>tt',':terminal<CR>',{ noremap = true, silent = true, desc = 'open terminal'})
 -- Terminal mode: Exit to normal mode with <C-w>
 vim.keymap.set('t', '<C-w>', '<C-\\><C-n>', { noremap = true, silent = true, desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>h', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
