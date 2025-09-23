@@ -14,6 +14,18 @@ return{
     },
     config = true,
   },
+	{
+		"github/copilot.vim",
+    event = "InsertEnter"
+	},
+  {
+    "windwp/nvim-ts-autotag",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+    event = "InsertEnter", -- optional: lazy-load on insert
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
