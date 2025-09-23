@@ -1,6 +1,20 @@
 return{
   --Syntax Highlighting and Code Parser
   {
+    "amitds1997/remote-nvim.nvim",
+    version = "*",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    remote = {
+      use_preinstalled_nvim = true,
+      arch="x86_64"
+    },
+    config = true,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     opts = {
