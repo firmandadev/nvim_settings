@@ -4,30 +4,27 @@ require("mason-lspconfig").setup({
   ensure_installed = { "ts_ls" }, -- Use ts_ls instead of tsserver
 })
 
--- LSP configuration
-local lspconfig = require("lspconfig")
-lspconfig.ts_ls.setup({
-  on_attach = function(client, bufnr)
-    -- Disable formatting to avoid conflicts with other formatters (optional)
-    client.server_capabilities.documentFormattingProvider = false
-  end,
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-  },
-  settings = {
-    typescript = {
-      inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayFunctionLikeReturnTypeHints = true,
-      },
-    },
-  },
+vim.lsp.config("ts_ls",{
+  on_attach = function(client, bufnr) end,
+	modes = {
+		"javascript",
+		"javascriptreact",
+		"javascript.jsx",
+		"typescript",
+		"typescriptreact",
+		"typescript.tsx"
+	},
+	init_options = {
+		typescript = {
+			inLayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayFunctionLikeReturnTypeHints = true,
+			}
+		}
+	}
 })
+
+-- LSP configuration
 
 -- nvim-cmp setup (unchanged from previous response for VSCode-like completion)
 local cmp = require("cmp")

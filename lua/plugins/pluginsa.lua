@@ -73,14 +73,6 @@ return{
     end
   },
   {
-    --Monokai color scheme
-    "loctvl842/monokai-pro.nvim",
-    config = function()
-      require("monokai-pro").setup()
-      vim.cmd.colorscheme("monokai-pro")
-    end,
-  },
-  {
     --Dashboard for neovim
     'goolord/alpha-nvim',
     config = function()
