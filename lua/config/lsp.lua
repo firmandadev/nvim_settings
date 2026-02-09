@@ -90,8 +90,3 @@ cmp.setup({
 })
 
 -- Treesitter for better syntax highlighting
-require("nvim-treesitter.configs").setup({
-  ensure_installed = { "javascript", "typescript" },
-  highlight = { enable = true },
-  incremental_selection = { enable = true },
-})

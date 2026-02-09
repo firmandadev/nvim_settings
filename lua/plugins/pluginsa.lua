@@ -27,31 +27,6 @@ return{
     event = "InsertEnter", -- optional: lazy-load on insert
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    opts = {
-      highlight = {
-        enable = true,
-      },
-      indent = {
-        enable = true,
-      },
-      ensure_installed = {
-        "javascript",
-        "lua",
-        "python",
-        "html",
-        "css",
-        "bash",
-        "json"
-      },
-      ignore_install = { "typescript"},
-    },
-    config = function(_,opts)
-    require("nvim-treesitter.configs").setup(opts)
-    end,
-  },
-  {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
       dependencies = { 'nvim-lua/plenary.nvim' }
   },
