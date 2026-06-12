@@ -4,9 +4,7 @@ require("mason-lspconfig").setup({
   ensure_installed = { "ts_ls" }, -- Use ts_ls instead of tsserver
 })
 
--- LSP configuration
-local lspconfig = require("lspconfig")
-lspconfig.ts_ls.setup({
+vim.lsp.config('ts_ls', {
   on_attach = function(client, bufnr)
     -- Disable formatting to avoid conflicts with other formatters (optional)
     client.server_capabilities.documentFormattingProvider = false
@@ -28,7 +26,6 @@ lspconfig.ts_ls.setup({
     },
   },
 })
-
 -- nvim-cmp setup (unchanged from previous response for VSCode-like completion)
 local cmp = require("cmp")
 local luasnip = require("luasnip")
